@@ -3,14 +3,11 @@
 #### Building from source
 
 ```bash
-$ git clone https://github.com/Alexays/Waybar
-$ cd Wbless
 $ meson setup build
 $ ninja -C build
-$ ./build/waybar
-# If you want to install it
-$ ninja -C build install
-$ waybar
+# Put the built executable at /usr/local/bin
+# ???
+# Profit
 ```
 
 **Dependencies**
