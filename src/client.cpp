@@ -8,7 +8,6 @@
 
 #include "gtkmm/icontheme.h"
 #include "idle-inhibit-unstable-v1-client-protocol.h"
-#include "util/clara.hpp"
 #include "util/format.hpp"
 
 waybar::Client *waybar::Client::inst() {
@@ -216,32 +215,10 @@ void waybar::Client::bindInterfaces() {
 }
 
 int waybar::Client::main(int argc, char *argv[]) {
-  bool show_help = false;
-  bool show_version = false;
   std::string config_opt;
   std::string style_opt;
   std::string log_level;
-  auto cli = clara::detail::Help(show_help) |
-             clara::detail::Opt(show_version)["-v"]["--version"]("Show version") |
-             clara::detail::Opt(config_opt, "config")["-c"]["--config"]("Config path") |
-             clara::detail::Opt(style_opt, "style")["-s"]["--style"]("Style path") |
-             clara::detail::Opt(
-                 log_level,
-                 "trace|debug|info|warning|error|critical|off")["-l"]["--log-level"]("Log level") |
-             clara::detail::Opt(bar_id, "id")["-b"]["--bar"]("Bar id");
-  auto res = cli.parse(clara::detail::Args(argc, argv));
-  if (!res) {
-    spdlog::error("Error in command line: {}", res.errorMessage());
-    return 1;
-  }
-  if (show_help) {
-    std::cout << cli << '\n';
-    return 0;
-  }
-  if (show_version) {
-    std::cout << "Waybar v" << VERSION << '\n';
-    return 0;
-  }
+
   if (!log_level.empty()) {
     spdlog::set_level(spdlog::level::from_str(log_level));
   }
