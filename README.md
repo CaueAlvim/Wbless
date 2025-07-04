@@ -36,3 +36,8 @@ cmake
 meson
 wayland-protocols
 ```
+
+**Current checksum**
+```
+9f2d6aaec63916aaeae56b18a507eb9046497dcd30d337dd398f24773ddb9b5a  waybar
+```
