@@ -10,31 +10,10 @@ $ ninja -C build
 # Profit
 ```
 
-**Dependencies**
-
-```
-gtkmm3
-jsoncpp
-libsigc++
-fmt
-wayland
-chrono-date
-spdlog
-libgtk-3-dev [gtk-layer-shell]
-gobject-introspection [gtk-layer-shell]
-libgirepository1.0-dev [gtk-layer-shell]
-libnl [Network module]
-libappindicator-gtk3 [Tray module]
-libdbusmenu-gtk3 [Tray module]
-xkbregistry
-```
-
 **Build dependencies**
 
 ```
-cmake
-meson
-wayland-protocols
+meson glib2-devel fmt spdlog gtkmm3 jsoncpp libdbusmenu-gtk3
 ```
 
 **Current checksum**
